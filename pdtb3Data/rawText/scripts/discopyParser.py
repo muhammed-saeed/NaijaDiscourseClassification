@@ -138,5 +138,5 @@ if __name__ == '__main__':
                 output.append(result)
                 # print(f"the results {result}", file=sys.stderr)
 
-            with open(jsonFilePath, "w") as file:
-                    json.dump(output, file)
+                with open(jsonFilePath, "w") as file:
+                        json.dump(output, file)
