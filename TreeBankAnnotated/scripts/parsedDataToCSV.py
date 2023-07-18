@@ -11,6 +11,7 @@ args2 = []
 connectives = []
 relationss = []
 
+typeRelation = []
 for sentence_dict in data:
     # Extract the English Annotated Sentences Parsed
     annotated_sentence = sentence_dict["English Annotated Sentences Parsed"]
@@ -31,6 +32,7 @@ for sentence_dict in data:
         args2.append(arg2)
         connectives.append(connective)
         relationss.append(relation)
+        typeRelation.append(relation['Type'])
 
 print("Number of texts:", len(texts))
 print("Number of relations:", len(relationss))
@@ -38,3 +40,5 @@ print("First relation:", relationss[0])
 print("Number of args1:", len(args1))
 print("Number of args2:", len(args2))
 print("Number of connectives:", len(connectives))
+print(len(typeRelation))
+# print(relationss[0])

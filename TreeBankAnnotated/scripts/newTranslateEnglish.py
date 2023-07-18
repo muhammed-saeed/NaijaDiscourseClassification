@@ -19,7 +19,7 @@ model_args = T5Args()
 model_args.max_length = 128
 model_args.length_penalty = 1
 model_args.num_beams = 5
-model_args.eval_batch_size = 32
+model_args.eval_batch_size = 16
 
 
 model_path = "/local/musaeed/BESTT5TranslationModel"

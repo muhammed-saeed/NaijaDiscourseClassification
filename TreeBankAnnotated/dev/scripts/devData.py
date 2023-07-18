@@ -1,13 +1,9 @@
 import pandas as pd
 
-
-
 #tsv file path
 tsv = "/local/musaeed/CLaT/train.tsv"
 
-
 # Initialize an empty list
-
 def returnTreenbank(file):
     # Read the text file
     lines_list = []
@@ -19,9 +15,8 @@ def returnTreenbank(file):
                 # Remove the '# text_en =' prefix and append the line to the list
                 lines_list.append(line[len('# text_en ='):].strip())
 
-    # Print the resulting list
-    # print(lines_list)
     return lines_list
+
 df = pd.read_csv(tsv, sep='\t')
 
 check_list1 = returnTreenbank('/local/musaeed/pcm_nsc-ud-dev.conllu')
@@ -29,9 +24,14 @@ print(len(check_list1))
 
 check_list1.extend(returnTreenbank('/local/musaeed/pcm_nsc-ud-test.conllu'))
 print(len(check_list1))
+
 filtered_df = df[~(df['input_text'].isin(check_list1) | df['target_text'].isin(check_list1))]
 print(filtered_df.head())
 
-print(f"the len difference ois {len(df) - len(filtered_df)}")
+print(f"The length difference is {len(df) - len(filtered_df)}")
 
-filtered_df.to_csv("/local/musaeed/CLaT/dev/data/trainDatawithoutDevNorTest.tsv",sep='\t')
+# Create a new DataFrame with 'check_list1' column
+checklist_df = pd.DataFrame({'check_list1': check_list1})
+
+# Save the new DataFrame to a CSV file
+checklist_df.to_csv("/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/dev/data/pcmTreeBankDevTestData.csv", index=False)

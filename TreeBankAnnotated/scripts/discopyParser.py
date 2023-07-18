@@ -8,24 +8,24 @@ import logging
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic.main import BaseModel
-from simpletransformers.t5 import T5Model, T5Args
+# from simpletransformers.t5 import T5Model, T5Args
 from discopy_data.data.loaders.raw import load_textss as load_texts_fast
 from discopy.parsers.pipeline import ParserPipeline
 from discopy_data.nn.bert import get_sentence_embedder
 import pandas as pd
 
-logging.basicConfig(level=logging.INFO)
-transformers_logger = logging.getLogger("transformers")
-transformers_logger.setLevel(logging.WARNING)
+# logging.basicConfig(level=logging.INFO)
+# transformers_logger = logging.getLogger("transformers")
+# transformers_logger.setLevel(logging.WARNING)
 
-model_args = T5Args()
-model_args.max_length = 256
-model_args.n_gpu = 4
-model_args.length_penalty = 1
-model_args.num_beams = 10
-model_args.use_multiprocessed_decoding = False
-model_output_dir = "/local/musaeed/BESTT5TranslationModel"
-model = T5Model("t5", model_output_dir, args=model_args, use_cuda=True)
+# model_args = T5Args()
+# model_args.max_length = 256
+# model_args.n_gpu = 4
+# model_args.length_penalty = 1
+# model_args.num_beams = 10
+# model_args.use_multiprocessed_decoding = False
+# model_output_dir = "/local/musaeed/BESTT5TranslationModel"
+# model = T5Model("t5", model_output_dir, args=model_args, use_cuda=True)
 
 arg_parser = ArgumentParser()
 arg_parser.add_argument("--model-path", default="/local/musaeed/discopy_models", type=str, help="path to trained discourse parser")
@@ -36,9 +36,9 @@ model_path = "/home/CE/musaeed/bert_model/"
 
 
 
-df = pd.read_csv("/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/csv/processed/mergedTextWithPCMFullTextAndTranslated.csv")
+df = pd.read_csv("/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/csv/processed/mergedTreeBankAnnotationWithoutDevTest.csv")
 english_translatedData = df['EnglishTranslationPCM'].tolist()
-
+english_real_annotation = df['EnglishTranslationPCMWithoutDEVTest'].tolist()
 
 parser: ParserPipeline = None
 get_sentence_embeddings = None
@@ -97,7 +97,7 @@ def apply_parseren(r, parser):
         doc.sentences[sent_i].embeddings = embeddings
     doc = parser(doc)
     doc_json = doc.to_json()
-    return {"translatedDetails": str(doc_json)}
+    return {"English Annotated Sentences Parsed": doc_json}
 
 if __name__ == '__main__':
     print("you are welcome here")
@@ -114,10 +114,10 @@ if __name__ == '__main__':
     # sentences = ["the weather is nice. however Idon't have time", "however the weather is not  nice. I am not going outside"]
     output = []
 
-    for sentence in english_translatedData:
+    for sentence in english_real_annotation:
         request = ParserRequest(details=sentence, title="")
         result = apply_parseren(request, parser)
         output.append(result)
 
-        with open("/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/discopyPrased/output_file.json", "w") as file:
+        with open("/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/parsedDataDiscopy/TreebankTranslationsWithoutDevTest.json", "w") as file:
             json.dump(output, file)
