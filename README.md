@@ -103,14 +103,22 @@ python3 TreeBankAnnotated/scripts/explicitImplicitOnly.py
 4- then create the full text in english format
 
 ```
-python3 TreeBankAnnotated/scripts/CreateFullTextEnglish.py
+<!-- python3 TreeBankAnnotated/scripts/CreateFullTextEnglish.py -->
+python3 TreeBankAnnotated/scripts/fullTextGeneratorAndMapping.py
 ```
 
 
 5-create the corresponding NaijaText
 
 ```
-python3 TreeBankAnnotated/scripts/fullTextMapping.py
+python3 TreeBankAnnotated/scripts/fullTextMappingCodeToUse.py
+
+```
+
+5-1 we realized that the generated data looks the same a
+
+```
+
 
 ```
 
