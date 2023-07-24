@@ -35,10 +35,11 @@ args = arg_parser.parse_args()
 model_path = "/home/CE/musaeed/bert_model/"
 
 
-
-df = pd.read_csv("/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/dev/data/pcmTreeBankDevTestData.csv")
+df = pd.read_csv("/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/csv/processed/filteredTESTDEV.csv")
+# df = pd.read_csv("/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/dev/data/pcmTreeBankDevTestData.csv")
 # english_translatedData = df['EnglishTranslationPCM'].tolist()
-english_real_annotation = df['check_list1'].tolist()
+df = pd.read_csv("/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/csv/processed/filteredTESTDEV.csv")
+english_real_annotation = df['EnglishTranslationPCMWithoutDEVTest'].tolist()
 
 parser: ParserPipeline = None
 get_sentence_embeddings = None
@@ -119,5 +120,5 @@ if __name__ == '__main__':
         result = apply_parseren(request, parser)
         output.append(result)
 
-        with open("/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/parsedDataDiscopy/TreeBankPCMDevTest.json", "w") as file:
+        with open("/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/parsedDataDiscopy/FakeEnglishFilteredTreeBankPCMDevTest.json", "w") as file:
             json.dump(output, file)
