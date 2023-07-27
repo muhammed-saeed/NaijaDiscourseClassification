@@ -136,10 +136,10 @@ if __name__ == '__main__':
     # sentences = ["the weather is nice. however Idon't have time", "however the weather is not  nice. I am not going outside"]
     output = []
     english_real_annotation = ["The girl i love doesnot allow me to tell her I love her. However i love her.", "I am going outside.Since the wehter is nice" ]
-    for sentence in english_real_annotation:
+    for idx,sentence in enumerate(english_real_annotation):
         request = ParserRequest(details=sentence, title="")
         result = apply_parseren(request, parser)
         output.append(result)
 
-        with open("/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/parsedDataDiscopy/test.json", "w") as file:
+        with open(f"/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/parsedDataDiscopy/devTest/fake/{idx}.json", "w") as file:
             json.dump(output, file)

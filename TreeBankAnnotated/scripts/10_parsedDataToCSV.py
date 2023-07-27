@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 # Read JSON data from file
-with open('/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/parsedDataDiscopy/RealEnglishFilteredTreeBankPCMDevTest.json', 'r') as file:
+with open('/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/parsedDataDiscopy/RealEnglishFilteredTreeBankPCMDevTest1483Examples.json', 'r') as file:
     data = json.load(file)
 
 # Extract required information
@@ -50,4 +50,4 @@ df = pd.DataFrame({
 })
 
 # Save the DataFrame to a file
-df.to_csv('/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/dev/data/ParsedCSV/TreebankRealParsedToCsv.csv', index=False)
+df.to_csv('/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/dev/data/ParsedCSV/RealEnglishFilteredTreeBankPCMDevTest1483Examples.csv', index=False)

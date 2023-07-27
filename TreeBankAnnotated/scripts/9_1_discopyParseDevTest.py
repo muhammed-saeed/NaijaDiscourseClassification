@@ -13,7 +13,9 @@ from discopy_data.data.loaders.raw import load_textss as load_texts_fast
 from discopy.parsers.pipeline import ParserPipeline
 from discopy_data.nn.bert import get_sentence_embedder
 import pandas as pd
-
+import supar
+from discopy_data.data.update import get_constituent_parse, get_dependency_parse
+   
 # logging.basicConfig(level=logging.INFO)
 # transformers_logger = logging.getLogger("transformers")
 # transformers_logger.setLevel(logging.WARNING)
@@ -35,7 +37,7 @@ args = arg_parser.parse_args()
 model_path = "/home/CE/musaeed/bert_model/"
 
 
-# df = pd.read_csv("/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/csv/processed/filteredTESTDEV.csv")
+df = pd.read_csv("/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/csv/processed/filteredTESTDEV.csv")
 # df = pd.read_csv("/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/dev/data/pcmTreeBankDevTestData.csv")
 # english_translatedData = df['EnglishTranslationPCM'].tolist()
 df = pd.read_csv("/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/dev/data/csv/devTestDatasetwithTranslationsOfPCM.csv")
@@ -48,22 +50,44 @@ class ParserRequest(BaseModel):
     details: str
     title: str
 
+def load_parser(model_path):
+    parser = ParserPipeline.from_config(model_path)
+    parser.load(model_path)
+    return parser
+
+constituent_parser='crf-con-en'
+dependency_parser='biaffine-dep-en'
+constituents=True
+dependencies=True
+cparserA = supar.Parser.load(constituent_parser) if constituents else None
+dparserA = supar.Parser.load(dependency_parser) if dependencies else None
+
+
+def load_parsertrankit(use_gpu=False):
+    import trankit
+    tmp_stdout = sys.stdout
+    sys.stdout = sys.stderr
+    parser = trankit.Pipeline('english', cache_dir=os.path.expanduser('~/.trankit/'), gpu=use_gpu)
+    parser.tokenize("Init")
+    sys.stdout = tmp_stdout
+    print("we have completed the load_paraser step", file=sys.stderr)
+    return parser
+parserA = load_parsertrankit()
+
 def tokenize(text, fast=False, tokenize_only=False):
     from discopy_data.data.loaders.raw import load_textss as load_texts_fast
-    from discopy_data.data.loaders.raw import load_texts
+    from discopy_data.data.loaders.raw import load_textsParserArgument
     output = []
     arr2text = ". ".join(text)
-    document_loader = load_texts_fast if fast else load_texts
-    document_loader = load_texts
-    for doc in document_loader(re.split(r'\n\n\n+', text), tokenize_only=False):
+    document_loader = load_texts_fast if fast else load_textsParserArgument
+    document_loader = load_textsParserArgument
+    for doc in document_loader(re.split(r'\n\n\n+', text), parserA, tokenize_only=False):
         output.append(doc)
     return output
 
-def add_parsers(src, constituent_parser='crf-con-en', dependency_parser='biaffine-dep-en', constituents=True, dependencies=True):
-    import supar
-    from discopy_data.data.update import get_constituent_parse, get_dependency_parse
-    cparser = supar.Parser.load(constituent_parser) if constituents else None
-    dparser = supar.Parser.load(dependency_parser) if dependencies else None
+def add_parsers(src,cparser=cparserA,dparser=dparserA, constituent_parser='crf-con-en', dependency_parser='biaffine-dep-en', constituents=True, dependencies=True):
+    # cparser = supar.Parser.load(constituent_parser) if constituents else None
+    # dparser = supar.Parser.load(dependency_parser) if dependencies else None
     output = []
     for doc in src:
         for sent_i, sent in enumerate(doc.sentences):
@@ -77,10 +101,7 @@ def add_parsers(src, constituent_parser='crf-con-en', dependency_parser='biaffin
         output.append(doc)
     return output
 
-def load_parser(model_path):
-    parser = ParserPipeline.from_config(model_path)
-    parser.load(model_path)
-    return parser
+
 
 def apply_parseren(r, parser):
     get_sentence_embeddings = get_sentence_embedder(args.bert_model)
@@ -114,11 +135,11 @@ if __name__ == '__main__':
     # Test sentence
     # sentences = ["the weather is nice. however Idon't have time", "however the weather is not  nice. I am not going outside"]
     output = []
-
-    for sentence in english_real_annotation:
+    # english_real_annotation = ["The girl i love doesnot allow me to tell her I love her. However i love her.", "I am going outside.Since the wehter is nice" ]
+    for idx,sentence in enumerate(english_real_annotation):
         request = ParserRequest(details=sentence, title="")
         result = apply_parseren(request, parser)
         output.append(result)
 
-        with open("/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/parsedDataDiscopy/RealEnglishFilteredTreeBankPCMDevTest1483Examples.json", "w") as file:
+        with open(f"/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/parsedDataDiscopy/devTest/real/{idx}.json", "w") as file:
             json.dump(output, file)
