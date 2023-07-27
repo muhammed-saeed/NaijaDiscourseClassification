@@ -134,9 +134,10 @@ if __name__ == '__main__':
     
     # Test sentence
     # sentences = ["the weather is nice. however Idon't have time", "however the weather is not  nice. I am not going outside"]
-    output = []
+    
     # english_real_annotation = ["The girl i love doesnot allow me to tell her I love her. However i love her.", "I am going outside.Since the wehter is nice" ]
     for idx,sentence in enumerate(english_real_annotation):
+        output = []
         request = ParserRequest(details=sentence, title="")
         result = apply_parseren(request, parser)
         output.append(result)
