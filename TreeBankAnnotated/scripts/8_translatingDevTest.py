@@ -26,8 +26,12 @@ model_path = "/local/musaeed/BESTT5TranslationModel"
 model_path = "/local/musaeed/CLaTCheckpointsWithoutDev/checkpoint-65268-epoch-9"
 model = T5Model("t5", model_path, args=model_args)
 
-df = pd.read_csv("/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/dev/data/csv/devTestdataset.csv")
-pcmFullText = df['PCM_FULL_TEXT'].to_list()
+# df = pd.read_csv("/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/dev/data/csv/devTestdataset.csv")
+# pcmFullText = df['PCM_FULL_TEXT'].to_list()
+
+
+df= pd.read_csv("/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/csv/conllu/DevTestDataFramesConllu.csv")
+pcmFullText = df['Text_ortho'].tolist()
 
 englishToPredNoDEVTEst= ["translate pcm to english: "+ line for line in pcmFullText]
 
@@ -35,4 +39,4 @@ t5Preds = model.predict(englishToPredNoDEVTEst)
 
 df['EnglishTranslationPCMWithoutDEVTest'] = t5Preds
 
-df.to_csv("/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/dev/data/csv/devTestDatasetwithTranslationsOfPCM.csv", index=False)
+df.to_csv("/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/dev/data/csv/devTestConlluDatasetwithTranslationsOfPCM.csv", index=False)

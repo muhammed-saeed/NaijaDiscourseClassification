@@ -37,12 +37,16 @@ args = arg_parser.parse_args()
 model_path = "/home/CE/musaeed/bert_model/"
 
 
-df = pd.read_csv("/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/csv/processed/filteredTESTDEV.csv")
+# df = pd.read_csv("/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/csv/processed/filteredTESTDEV.csv")
+
+df = pd.read_csv("/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/dev/data/csv/devTestConlluDatasetwithTranslationsOfPCM.csv")
+
+
 # df = pd.read_csv("/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/dev/data/pcmTreeBankDevTestData.csv")
 # english_translatedData = df['EnglishTranslationPCM'].tolist()
-df = pd.read_csv("/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/dev/data/csv/devTestDatasetwithTranslationsOfPCM.csv")
-english_real_annotation = df['full_text'].tolist()
-
+# df = pd.read_csv("/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/dev/data/csv/devTestDatasetwithTranslationsOfPCM.csv")
+# english_real_annotation = df['full_text'].tolist()
+english_real_annotation= df['Text_en'].tolist()
 parser: ParserPipeline = None
 get_sentence_embeddings = None
 
@@ -142,5 +146,5 @@ if __name__ == '__main__':
         result = apply_parseren(request, parser)
         output.append(result)
 
-        with open(f"/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/parsedDataDiscopy/devTest/real/{idx}.json", "w") as file:
+        with open(f"/local/musaeed/NaijaDiscourseClassification/TreeBankAnnotated/ConlluparsedDataDiscopy/devTest/real/{idx}.json", "w") as file:
             json.dump(output, file)
