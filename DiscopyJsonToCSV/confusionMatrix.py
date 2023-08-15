@@ -1,60 +1,67 @@
 import pandas as pd
 from sklearn.metrics import confusion_matrix
+import argparse
 
-# Load the csv files into pandas dataframes
-real_df = pd.read_csv('/local/musaeed/NaijaDiscourseClassification/DiscopyJsonToCSV/RealEnglishDiscopyPrased.csv')
-translated_df = pd.read_csv('/local/musaeed/NaijaDiscourseClassification/DiscopyJsonToCSV/translatedEnglishDiscopyPrased.csv')
+def generate_confusion_matrix_for_column(real_df, translated_df, column, file):
+    labels = sorted(list(set(real_df[column])))
 
-# Count occurrences of each file_index in both DataFrames
-real_counts = real_df['file_index'].value_counts()
-translated_counts = translated_df['file_index'].value_counts()
-
-# Align the two Series to have the same set of indices (file_index values)
-aligned_real_counts, aligned_translated_counts = real_counts.align(translated_counts, fill_value=0)
-
-# Now, identify file-indices with the same count in both aligned Series
-matching_indices = aligned_real_counts[aligned_real_counts == aligned_translated_counts].index
-
-# Filter rows based on matching file-indices
-real_df = real_df[real_df['file_index'].isin(matching_indices)]
-translated_df = translated_df[translated_df['file_index'].isin(matching_indices)]
-
-def generate_confusion_matrix_for_column(real_df, translated_df, column):
-    unique_values = real_df[column].unique()
-
-    for value in unique_values:
-        print(f"Analyzing {column} value: {value}")
-
-        # Get indices of rows in real_df where the column has the specific value
+    matrices = {}
+    
+    for value in labels:
         indices = real_df[real_df[column] == value].index
-        
-        # Ensure we are only considering indices that exist in both dataframes
         common_indices = indices[indices.isin(translated_df.index)]
-
+        
         true_values = real_df.loc[common_indices, column].tolist()
         pred_values = translated_df.loc[common_indices, column].tolist()
 
-        labels = list(set(true_values) | set(pred_values))
-        
         matrix = confusion_matrix(true_values, pred_values, labels=labels)
-        
-        # Printing the confusion matrix
-        print(f"Confusion Matrix for {column} value: {value}")
-        print(matrix)
-        print("-" * 50)
+        matrices[value] = matrix[labels.index(value)]
 
-# Replace NaNs
-real_df = real_df.fillna({
-    'Type': 'Implicit',
-    'Sense': 'NoSense',
-    'Connective_RawText': 'NoConnective'
-})
-translated_df = translated_df.fillna({
-    'Type': 'Implicit',
-    'Sense': 'NoSense',
-    'Connective_RawText': 'NoConnective'
-})
+    df_matrix = pd.DataFrame(matrices, index=labels, columns=labels).T
+    
+    file.write(f"Confusion Matrix for {column}:\n")
+    file.write(df_matrix.to_string())
+    file.write("\n" + "-" * 50 + "\n")
 
-# Analyze each column
-for column in ['Connective_RawText', 'Sense', 'Type']:
-    generate_confusion_matrix_for_column(real_df, translated_df, column)
+def main(args):
+    real_df = pd.read_csv(args.real_csv_path)
+    translated_df = pd.read_csv(args.translated_csv_path)
+    
+    real_counts = real_df['file_index'].value_counts()
+    translated_counts = translated_df['file_index'].value_counts()
+    
+    aligned_real_counts, aligned_translated_counts = real_counts.align(translated_counts, fill_value=0)
+    
+    matching_indices = aligned_real_counts[aligned_real_counts == aligned_translated_counts].index
+    
+    real_df = real_df[real_df['file_index'].isin(matching_indices)]
+    translated_df = translated_df[translated_df['file_index'].isin(matching_indices)]
+    
+    real_df = real_df.fillna({
+        'Type': 'Missing',
+        'Sense': 'NoSense',
+        'Connective_RawText': 'NoConnective'
+    })
+    translated_df = translated_df.fillna({
+        'Type': 'Missing',
+        'Sense': 'NoSense',
+        'Connective_RawText': 'NoConnective'
+    })
+    
+    file_paths = {
+        'Connective_RawText': '/local/musaeed/NaijaDiscourseClassification/DiscopyJsonToCSV/results/connective_output.txt',
+        'Sense': '/local/musaeed/NaijaDiscourseClassification/DiscopyJsonToCSV/results/sense_output.txt',
+        'Type': '/local/musaeed/NaijaDiscourseClassification/DiscopyJsonToCSV/results/type_output.txt'
+    }
+
+    for column in ['Connective_RawText', 'Sense', 'Type']:
+        with open(file_paths[column], 'w') as file:
+            generate_confusion_matrix_for_column(real_df, translated_df, column, file)
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Process data and generate confusion matrices.")
+    parser.add_argument("--real_csv_path", type=str, default="/local/musaeed/NaijaDiscourseClassification/DiscopyJsonToCSV/RealEnglishDiscopyPrased.csv", help="Path to the real CSV file")
+    parser.add_argument("--translated_csv_path", type=str, default="/local/musaeed/NaijaDiscourseClassification/DiscopyJsonToCSV/translatedEnglishDiscopyPrased.csv", help="Path to the translated CSV file")
+
+    args = parser.parse_args()
+    main(args)
