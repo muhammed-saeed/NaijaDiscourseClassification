@@ -13,3 +13,12 @@ python bash_run_discopy.py --csv_path --column_name --output_folder --parse_mode
 ```
 python3 discopyJsonToCSV.py --folder_path --output_csv
 ```
+
+
+## order the csv files to be visualized better
+
+```
+
+```
+
+## now the confusion matrix
