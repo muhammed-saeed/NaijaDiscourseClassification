@@ -1,0 +1,529 @@
+{
+    "docID": 5654205588150883772,
+    "meta": {
+        "fileID": "raw_00000",
+        "corpus": "raw",
+        "created": "2023-08-14T06:20:17.085635"
+    },
+    "text": "Uh... the time I was with my mother, my father in the village, after I got older (I was about eight years old), my grandmother came and visited us.",
+    "sentences": [
+        {
+            "dependencies": [
+                {
+                    "head": 31,
+                    "deprel": "discourse"
+                },
+                {
+                    "head": 31,
+                    "deprel": "punct"
+                },
+                {
+                    "head": 3,
+                    "deprel": "det"
+                },
+                {
+                    "head": 31,
+                    "deprel": "obl:tmod"
+                },
+                {
+                    "head": 8,
+                    "deprel": "nsubj"
+                },
+                {
+                    "head": 8,
+                    "deprel": "cop"
+                },
+                {
+                    "head": 8,
+                    "deprel": "case"
+                },
+                {
+                    "head": 8,
+                    "deprel": "nmod:poss"
+                },
+                {
+                    "head": 3,
+                    "deprel": "acl:relcl"
+                },
+                {
+                    "head": 11,
+                    "deprel": "punct"
+                },
+                {
+                    "head": 11,
+                    "deprel": "nmod:poss"
+                },
+                {
+                    "head": 8,
+                    "deprel": "appos"
+                },
+                {
+                    "head": 14,
+                    "deprel": "case"
+                },
+                {
+                    "head": 14,
+                    "deprel": "det"
+                },
+                {
+                    "head": 8,
+                    "deprel": "nmod"
+                },
+                {
+                    "head": 31,
+                    "deprel": "punct"
+                },
+                {
+                    "head": 18,
+                    "deprel": "mark"
+                },
+                {
+                    "head": 18,
+                    "deprel": "nsubj"
+                },
+                {
+                    "head": 31,
+                    "deprel": "advcl"
+                },
+                {
+                    "head": 18,
+                    "deprel": "xcomp"
+                },
+                {
+                    "head": 26,
+                    "deprel": "punct"
+                },
+                {
+                    "head": 26,
+                    "deprel": "nsubj"
+                },
+                {
+                    "head": 26,
+                    "deprel": "cop"
+                },
+                {
+                    "head": 24,
+                    "deprel": "advmod"
+                },
+                {
+                    "head": 25,
+                    "deprel": "nummod"
+                },
+                {
+                    "head": 26,
+                    "deprel": "obl:npmod"
+                },
+                {
+                    "head": 18,
+                    "deprel": "advcl"
+                },
+                {
+                    "head": 26,
+                    "deprel": "punct"
+                },
+                {
+                    "head": 31,
+                    "deprel": "punct"
+                },
+                {
+                    "head": 30,
+                    "deprel": "nmod:poss"
+                },
+                {
+                    "head": 31,
+                    "deprel": "nsubj"
+                },
+                {
+                    "head": -1,
+                    "deprel": "root"
+                },
+                {
+                    "head": 33,
+                    "deprel": "cc"
+                },
+                {
+                    "head": 31,
+                    "deprel": "conj"
+                },
+                {
+                    "head": 33,
+                    "deprel": "obj"
+                },
+                {
+                    "head": 31,
+                    "deprel": "punct"
+                }
+            ],
+            "parsetree": "(TOP (S (INTJ (INTJ Uh)) (PUNCT ...) (NP (NP (DET the) (NOUN time)) (SBAR (S (NP (PRON I)) (VP (AUX was) (PP (ADP with) (NP (NP (PRON my) (NOUN mother)) (PUNCT ,) (NP (NP (PRON my) (NOUN father)) (PP (ADP in) (NP (DET the) (NOUN village)))) (PUNCT ,))) (SBAR (SCONJ after) (S (NP (PRON I)) (VP (VP (VP (VERB got) (ADJP (ADJ older))) (SBAR (PUNCT () (S (NP (PRON I)) (VP (AUX was) (ADJP (NP (QP (ADV about) (NUM eight)) (NOUN years)) (ADJ old)))))) (PUNCT ))))))))) (PUNCT ,) (NP (PRON my) (NOUN grandmother)) (VP (VP (VERB came)) (CCONJ and) (VP (VERB visited) (NP (PRON us)))) (PUNCT .)))",
+            "tokens": [
+                {
+                    "surface": "Uh",
+                    "characterOffsetBegin": 0,
+                    "characterOffsetEnd": 2,
+                    "upos": "INTJ",
+                    "xpos": "UH",
+                    "lemma": "uh"
+                },
+                {
+                    "surface": "...",
+                    "characterOffsetBegin": 2,
+                    "characterOffsetEnd": 5,
+                    "upos": "PUNCT",
+                    "xpos": ",",
+                    "lemma": "..."
+                },
+                {
+                    "surface": "the",
+                    "characterOffsetBegin": 6,
+                    "characterOffsetEnd": 9,
+                    "upos": "DET",
+                    "xpos": "DT",
+                    "lemma": "the"
+                },
+                {
+                    "surface": "time",
+                    "characterOffsetBegin": 10,
+                    "characterOffsetEnd": 14,
+                    "upos": "NOUN",
+                    "xpos": "NN",
+                    "lemma": "time"
+                },
+                {
+                    "surface": "I",
+                    "characterOffsetBegin": 15,
+                    "characterOffsetEnd": 16,
+                    "upos": "PRON",
+                    "xpos": "PRP",
+                    "lemma": "I"
+                },
+                {
+                    "surface": "was",
+                    "characterOffsetBegin": 17,
+                    "characterOffsetEnd": 20,
+                    "upos": "AUX",
+                    "xpos": "VBD",
+                    "lemma": "be"
+                },
+                {
+                    "surface": "with",
+                    "characterOffsetBegin": 21,
+                    "characterOffsetEnd": 25,
+                    "upos": "ADP",
+                    "xpos": "IN",
+                    "lemma": "with"
+                },
+                {
+                    "surface": "my",
+                    "characterOffsetBegin": 26,
+                    "characterOffsetEnd": 28,
+                    "upos": "PRON",
+                    "xpos": "PRP$",
+                    "lemma": "my"
+                },
+                {
+                    "surface": "mother",
+                    "characterOffsetBegin": 29,
+                    "characterOffsetEnd": 35,
+                    "upos": "NOUN",
+                    "xpos": "NN",
+                    "lemma": "mother"
+                },
+                {
+                    "surface": ",",
+                    "characterOffsetBegin": 35,
+                    "characterOffsetEnd": 36,
+                    "upos": "PUNCT",
+                    "xpos": ",",
+                    "lemma": ","
+                },
+                {
+                    "surface": "my",
+                    "characterOffsetBegin": 37,
+                    "characterOffsetEnd": 39,
+                    "upos": "PRON",
+                    "xpos": "PRP$",
+                    "lemma": "my"
+                },
+                {
+                    "surface": "father",
+                    "characterOffsetBegin": 40,
+                    "characterOffsetEnd": 46,
+                    "upos": "NOUN",
+                    "xpos": "NN",
+                    "lemma": "father"
+                },
+                {
+                    "surface": "in",
+                    "characterOffsetBegin": 47,
+                    "characterOffsetEnd": 49,
+                    "upos": "ADP",
+                    "xpos": "IN",
+                    "lemma": "in"
+                },
+                {
+                    "surface": "the",
+                    "characterOffsetBegin": 50,
+                    "characterOffsetEnd": 53,
+                    "upos": "DET",
+                    "xpos": "DT",
+                    "lemma": "the"
+                },
+                {
+                    "surface": "village",
+                    "characterOffsetBegin": 54,
+                    "characterOffsetEnd": 61,
+                    "upos": "NOUN",
+                    "xpos": "NN",
+                    "lemma": "village"
+                },
+                {
+                    "surface": ",",
+                    "characterOffsetBegin": 61,
+                    "characterOffsetEnd": 62,
+                    "upos": "PUNCT",
+                    "xpos": ",",
+                    "lemma": ","
+                },
+                {
+                    "surface": "after",
+                    "characterOffsetBegin": 63,
+                    "characterOffsetEnd": 68,
+                    "upos": "SCONJ",
+                    "xpos": "IN",
+                    "lemma": "after"
+                },
+                {
+                    "surface": "I",
+                    "characterOffsetBegin": 69,
+                    "characterOffsetEnd": 70,
+                    "upos": "PRON",
+                    "xpos": "PRP",
+                    "lemma": "I"
+                },
+                {
+                    "surface": "got",
+                    "characterOffsetBegin": 71,
+                    "characterOffsetEnd": 74,
+                    "upos": "VERB",
+                    "xpos": "VBD",
+                    "lemma": "get"
+                },
+                {
+                    "surface": "older",
+                    "characterOffsetBegin": 75,
+                    "characterOffsetEnd": 80,
+                    "upos": "ADJ",
+                    "xpos": "JJR",
+                    "lemma": "older"
+                },
+                {
+                    "surface": "(",
+                    "characterOffsetBegin": 81,
+                    "characterOffsetEnd": 82,
+                    "upos": "PUNCT",
+                    "xpos": "-LRB-",
+                    "lemma": "("
+                },
+                {
+                    "surface": "I",
+                    "characterOffsetBegin": 82,
+                    "characterOffsetEnd": 83,
+                    "upos": "PRON",
+                    "xpos": "PRP",
+                    "lemma": "I"
+                },
+                {
+                    "surface": "was",
+                    "characterOffsetBegin": 84,
+                    "characterOffsetEnd": 87,
+                    "upos": "AUX",
+                    "xpos": "VBD",
+                    "lemma": "be"
+                },
+                {
+                    "surface": "about",
+                    "characterOffsetBegin": 88,
+                    "characterOffsetEnd": 93,
+                    "upos": "ADV",
+                    "xpos": "RB",
+                    "lemma": "about"
+                },
+                {
+                    "surface": "eight",
+                    "characterOffsetBegin": 94,
+                    "characterOffsetEnd": 99,
+                    "upos": "NUM",
+                    "xpos": "CD",
+                    "lemma": "eight"
+                },
+                {
+                    "surface": "years",
+                    "characterOffsetBegin": 100,
+                    "characterOffsetEnd": 105,
+                    "upos": "NOUN",
+                    "xpos": "NNS",
+                    "lemma": "year"
+                },
+                {
+                    "surface": "old",
+                    "characterOffsetBegin": 106,
+                    "characterOffsetEnd": 109,
+                    "upos": "ADJ",
+                    "xpos": "JJ",
+                    "lemma": "old"
+                },
+                {
+                    "surface": ")",
+                    "characterOffsetBegin": 109,
+                    "characterOffsetEnd": 110,
+                    "upos": "PUNCT",
+                    "xpos": "-RRB-",
+                    "lemma": ")"
+                },
+                {
+                    "surface": ",",
+                    "characterOffsetBegin": 110,
+                    "characterOffsetEnd": 111,
+                    "upos": "PUNCT",
+                    "xpos": ",",
+                    "lemma": ","
+                },
+                {
+                    "surface": "my",
+                    "characterOffsetBegin": 112,
+                    "characterOffsetEnd": 114,
+                    "upos": "PRON",
+                    "xpos": "PRP$",
+                    "lemma": "my"
+                },
+                {
+                    "surface": "grandmother",
+                    "characterOffsetBegin": 115,
+                    "characterOffsetEnd": 126,
+                    "upos": "NOUN",
+                    "xpos": "NN",
+                    "lemma": "grandmother"
+                },
+                {
+                    "surface": "came",
+                    "characterOffsetBegin": 127,
+                    "characterOffsetEnd": 131,
+                    "upos": "VERB",
+                    "xpos": "VBD",
+                    "lemma": "come"
+                },
+                {
+                    "surface": "and",
+                    "characterOffsetBegin": 132,
+                    "characterOffsetEnd": 135,
+                    "upos": "CCONJ",
+                    "xpos": "CC",
+                    "lemma": "and"
+                },
+                {
+                    "surface": "visited",
+                    "characterOffsetBegin": 136,
+                    "characterOffsetEnd": 143,
+                    "upos": "VERB",
+                    "xpos": "VBD",
+                    "lemma": "visit"
+                },
+                {
+                    "surface": "us",
+                    "characterOffsetBegin": 144,
+                    "characterOffsetEnd": 146,
+                    "upos": "PRON",
+                    "xpos": "PRP",
+                    "lemma": "we"
+                },
+                {
+                    "surface": ".",
+                    "characterOffsetBegin": 146,
+                    "characterOffsetEnd": 147,
+                    "upos": "PUNCT",
+                    "xpos": ".",
+                    "lemma": "."
+                }
+            ]
+        }
+    ],
+    "relations": [
+        {
+            "Arg1": {
+                "CharacterSpanList": [
+                    [
+                        6,
+                        61
+                    ],
+                    [
+                        109,
+                        146
+                    ]
+                ],
+                "RawText": "the time I was with my mother , my father in the village ) , my grandmother came and visited us",
+                "TokenList": [
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    27,
+                    28,
+                    29,
+                    30,
+                    31,
+                    32,
+                    33,
+                    34
+                ]
+            },
+            "Arg2": {
+                "CharacterSpanList": [
+                    [
+                        69,
+                        109
+                    ]
+                ],
+                "RawText": "I got older ( I was about eight years old",
+                "TokenList": [
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26
+                ]
+            },
+            "Connective": {
+                "CharacterSpanList": [
+                    [
+                        63,
+                        68
+                    ]
+                ],
+                "RawText": "after",
+                "TokenList": [
+                    16
+                ]
+            },
+            "DocID": 5654205588150883772,
+            "ID": 0,
+            "Sense": [
+                "Temporal.Asynchronous"
+            ],
+            "Type": "Explicit"
+        }
+    ]
+}
