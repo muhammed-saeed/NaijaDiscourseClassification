@@ -1,6 +1,6 @@
-###Discopy
+### Discopy
 
-##prase the list of sentences first
+## prase the list of sentences first
 
 
 ```
