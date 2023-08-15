@@ -1,0 +1,338 @@
+{
+    "docID": -2643060642836811694,
+    "meta": {
+        "fileID": "raw_00000",
+        "corpus": "raw",
+        "created": "2023-08-14T06:21:21.638105"
+    },
+    "text": "In fact, I was very young and I know how to work in the fields.",
+    "sentences": [
+        {
+            "dependencies": [
+                {
+                    "head": 1,
+                    "deprel": "case"
+                },
+                {
+                    "head": 6,
+                    "deprel": "obl"
+                },
+                {
+                    "head": 6,
+                    "deprel": "punct"
+                },
+                {
+                    "head": 6,
+                    "deprel": "nsubj"
+                },
+                {
+                    "head": 6,
+                    "deprel": "cop"
+                },
+                {
+                    "head": 6,
+                    "deprel": "advmod"
+                },
+                {
+                    "head": -1,
+                    "deprel": "root"
+                },
+                {
+                    "head": 9,
+                    "deprel": "cc"
+                },
+                {
+                    "head": 9,
+                    "deprel": "nsubj"
+                },
+                {
+                    "head": 6,
+                    "deprel": "conj"
+                },
+                {
+                    "head": 12,
+                    "deprel": "advmod"
+                },
+                {
+                    "head": 12,
+                    "deprel": "mark"
+                },
+                {
+                    "head": 9,
+                    "deprel": "ccomp"
+                },
+                {
+                    "head": 15,
+                    "deprel": "case"
+                },
+                {
+                    "head": 15,
+                    "deprel": "det"
+                },
+                {
+                    "head": 12,
+                    "deprel": "obl"
+                },
+                {
+                    "head": 6,
+                    "deprel": "punct"
+                }
+            ],
+            "parsetree": "(TOP (S (PP (ADP In) (NP (NOUN fact))) (PUNCT ,) (S (NP (PRON I)) (VP (AUX was) (ADJP (ADV very) (ADJ young)))) (CCONJ and) (S (NP (PRON I)) (VP (VERB know) (SBAR (WHADVP (ADV how)) (S (VP (PART to) (VP (VERB work) (PP (ADP in) (NP (DET the) (NOUN fields))))))))) (PUNCT .)))",
+            "tokens": [
+                {
+                    "surface": "In",
+                    "characterOffsetBegin": 0,
+                    "characterOffsetEnd": 2,
+                    "upos": "ADP",
+                    "xpos": "IN",
+                    "lemma": "in"
+                },
+                {
+                    "surface": "fact",
+                    "characterOffsetBegin": 3,
+                    "characterOffsetEnd": 7,
+                    "upos": "NOUN",
+                    "xpos": "NN",
+                    "lemma": "fact"
+                },
+                {
+                    "surface": ",",
+                    "characterOffsetBegin": 7,
+                    "characterOffsetEnd": 8,
+                    "upos": "PUNCT",
+                    "xpos": ",",
+                    "lemma": ","
+                },
+                {
+                    "surface": "I",
+                    "characterOffsetBegin": 9,
+                    "characterOffsetEnd": 10,
+                    "upos": "PRON",
+                    "xpos": "PRP",
+                    "lemma": "I"
+                },
+                {
+                    "surface": "was",
+                    "characterOffsetBegin": 11,
+                    "characterOffsetEnd": 14,
+                    "upos": "AUX",
+                    "xpos": "VBD",
+                    "lemma": "be"
+                },
+                {
+                    "surface": "very",
+                    "characterOffsetBegin": 15,
+                    "characterOffsetEnd": 19,
+                    "upos": "ADV",
+                    "xpos": "RB",
+                    "lemma": "very"
+                },
+                {
+                    "surface": "young",
+                    "characterOffsetBegin": 20,
+                    "characterOffsetEnd": 25,
+                    "upos": "ADJ",
+                    "xpos": "JJ",
+                    "lemma": "young"
+                },
+                {
+                    "surface": "and",
+                    "characterOffsetBegin": 26,
+                    "characterOffsetEnd": 29,
+                    "upos": "CCONJ",
+                    "xpos": "CC",
+                    "lemma": "and"
+                },
+                {
+                    "surface": "I",
+                    "characterOffsetBegin": 30,
+                    "characterOffsetEnd": 31,
+                    "upos": "PRON",
+                    "xpos": "PRP",
+                    "lemma": "I"
+                },
+                {
+                    "surface": "know",
+                    "characterOffsetBegin": 32,
+                    "characterOffsetEnd": 36,
+                    "upos": "VERB",
+                    "xpos": "VBP",
+                    "lemma": "know"
+                },
+                {
+                    "surface": "how",
+                    "characterOffsetBegin": 37,
+                    "characterOffsetEnd": 40,
+                    "upos": "ADV",
+                    "xpos": "WRB",
+                    "lemma": "how"
+                },
+                {
+                    "surface": "to",
+                    "characterOffsetBegin": 41,
+                    "characterOffsetEnd": 43,
+                    "upos": "PART",
+                    "xpos": "TO",
+                    "lemma": "to"
+                },
+                {
+                    "surface": "work",
+                    "characterOffsetBegin": 44,
+                    "characterOffsetEnd": 48,
+                    "upos": "VERB",
+                    "xpos": "VB",
+                    "lemma": "work"
+                },
+                {
+                    "surface": "in",
+                    "characterOffsetBegin": 49,
+                    "characterOffsetEnd": 51,
+                    "upos": "ADP",
+                    "xpos": "IN",
+                    "lemma": "in"
+                },
+                {
+                    "surface": "the",
+                    "characterOffsetBegin": 52,
+                    "characterOffsetEnd": 55,
+                    "upos": "DET",
+                    "xpos": "DT",
+                    "lemma": "the"
+                },
+                {
+                    "surface": "fields",
+                    "characterOffsetBegin": 56,
+                    "characterOffsetEnd": 62,
+                    "upos": "NOUN",
+                    "xpos": "NNS",
+                    "lemma": "field"
+                },
+                {
+                    "surface": ".",
+                    "characterOffsetBegin": 62,
+                    "characterOffsetEnd": 63,
+                    "upos": "PUNCT",
+                    "xpos": ".",
+                    "lemma": "."
+                }
+            ]
+        }
+    ],
+    "relations": [
+        {
+            "Arg1": {
+                "CharacterSpanList": [
+                    [
+                        7,
+                        25
+                    ]
+                ],
+                "RawText": ", I was very young",
+                "TokenList": [
+                    2,
+                    3,
+                    4,
+                    5,
+                    6
+                ]
+            },
+            "Arg2": {
+                "CharacterSpanList": [
+                    [
+                        26,
+                        62
+                    ]
+                ],
+                "RawText": "and I know how to work in the fields",
+                "TokenList": [
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15
+                ]
+            },
+            "Connective": {
+                "CharacterSpanList": [
+                    [
+                        0,
+                        7
+                    ]
+                ],
+                "RawText": "In fact",
+                "TokenList": [
+                    0,
+                    1
+                ]
+            },
+            "DocID": -2643060642836811694,
+            "ID": 0,
+            "Sense": [
+                "Expansion.Restatement"
+            ],
+            "Type": "Explicit"
+        },
+        {
+            "Arg1": {
+                "CharacterSpanList": [
+                    [
+                        0,
+                        25
+                    ]
+                ],
+                "RawText": "In fact , I was very young",
+                "TokenList": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6
+                ]
+            },
+            "Arg2": {
+                "CharacterSpanList": [
+                    [
+                        30,
+                        62
+                    ]
+                ],
+                "RawText": "I know how to work in the fields",
+                "TokenList": [
+                    8,
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15
+                ]
+            },
+            "Connective": {
+                "CharacterSpanList": [
+                    [
+                        26,
+                        29
+                    ]
+                ],
+                "RawText": "and",
+                "TokenList": [
+                    7
+                ]
+            },
+            "DocID": -2643060642836811694,
+            "ID": 1,
+            "Sense": [
+                "Expansion.Conjunction"
+            ],
+            "Type": "Explicit"
+        }
+    ]
+}

@@ -1,0 +1,5 @@
+file_index,text,Arg1_RawText,Arg1_CharacterSpanList,Arg2_RawText,Arg2_CharacterSpanList,Connective_RawText,Connective_CharacterSpanList,Sense,Type
+0,"Uh... the time I was with my mother, my father in the village, after I got older (I was about eight years old), my grandmother came and visited us.","the time I was with my mother , my father in the village ) , my grandmother came and visited us","[[6, 61], [109, 146]]",I got older ( I was about eight years old,"[[69, 109]]",after,"[[63, 68]]",Temporal.Asynchronous,Explicit
+2,"Because in my father's village, we were going to a farm and a farm.",,[],"in my father 's village , we were going to a farm and a farm","[[8, 66]]",Because,"[[0, 7]]",Contingency.Cause,Explicit
+3,"In fact, I was very young and I know how to work in the fields.",", I was very young","[[7, 25]]",and I know how to work in the fields,"[[26, 62]]",In fact,"[[0, 7]]",Expansion.Restatement,Explicit
+3,"In fact, I was very young and I know how to work in the fields.","In fact , I was very young","[[0, 25]]",I know how to work in the fields,"[[30, 62]]",and,"[[26, 29]]",Expansion.Conjunction,Explicit
