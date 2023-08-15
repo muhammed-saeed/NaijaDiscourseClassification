@@ -2,8 +2,8 @@ import json
 import csv
 import os
 
-folder_path = '/local/musaeed/discopy/realEnglish'  # replace with the path to your folder
-output_csv = '/local/musaeed/jsonSample/RealEnglishDiscopyPrased.csv'
+folder_path = '/local/musaeed/discopy/fake'  # replace with the path to your folder
+output_csv = '/local/musaeed/jsonSample/translatedEnglishDiscopyPrased.csv'
 
 # This is the header for our CSV file
 headers = ['file_index', 'text', 'Arg1_RawText', 'Arg1_CharacterSpanList', 'Arg2_RawText', 'Arg2_CharacterSpanList', 'Connective_RawText', 'Connective_CharacterSpanList', 'Sense', 'Type']
@@ -31,10 +31,10 @@ with open(output_csv, 'w', newline='') as csv_file:
                         'Arg1_CharacterSpanList': 'nan',
                         'Arg2_RawText': 'nan',
                         'Arg2_CharacterSpanList': 'nan',
-                        'Connective_RawText': 'nan',
+                        'Connective_RawText': 'Missing',
                         'Connective_CharacterSpanList': 'nan',
-                        'Sense': 'nan',
-                        'Type': 'nan'
+                        'Sense': 'Missing',
+                        'Type': 'Missing'
                     })
 
                 # If there are relations, write each relation to a new row in the CSV
